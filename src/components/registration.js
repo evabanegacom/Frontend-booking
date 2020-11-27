@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 class SignUp extends Component {
   constructor(props) {
@@ -16,13 +17,19 @@ class SignUp extends Component {
   }
 
   handleSubmit = e => {
+    e.preventDefault();
     const { name, email, password } = this.state;
+    const { history } = this.props;
     axios.post('http://localhost:3001/api/v1/users', {
       name,
       email,
       password,
-    });
-    e.preventDefault();
+    })
+      .then(response => {
+        if (response.data.status === 'created') {
+          history.push('/signIn');
+        }
+      });
   }
 
   handleChange = e => {
@@ -82,5 +89,9 @@ class SignUp extends Component {
     );
   }
 }
+
+SignUp.propTypes = {
+  history: PropTypes.string.isRequired,
+};
 
 export default SignUp;
