@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { signUserUp } from '../actions/actions';
+/* eslint-disable */
+// import PropTypes from 'prop-types';
 
 class SignUp extends Component {
   constructor(props) {
@@ -18,18 +20,9 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { name, email, password } = this.state;
-    const { history } = this.props;
-    axios.post('http://localhost:3001/api/v1/users', {
-      name,
-      email,
-      password,
-    })
-      .then(response => {
-        if (response.data.status === 'created') {
-          history.push('/signIn');
-        }
-      });
+    console.log(this.state);
+    this.props.signUserUp(this.state)
+
   }
 
   handleChange = e => {
@@ -89,9 +82,11 @@ class SignUp extends Component {
     );
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+      signUserUp: (userInfo) => dispatch(signUserUp(userInfo))
+  }
+}
 
-SignUp.propTypes = {
-  history: PropTypes.string.isRequired,
-};
-
-export default SignUp;
+export default connect(null, mapDispatchToProps)(SignUp)
+/* eslint-enable */

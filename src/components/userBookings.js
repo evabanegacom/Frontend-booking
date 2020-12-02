@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Bookings = () => (
-  <div>
-    <h2>user booking activities goes here</h2>
-  </div>
-);
+function Bookings() {
+  return (
+    <div>
+      <h2>booking goes here</h2>
+    </div>
+  );
+}
 
 export default Bookings;
