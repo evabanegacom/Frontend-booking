@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signUserUp } from '../actions/actions';
-/* eslint-disable */
-// import PropTypes from 'prop-types';
 
 class SignUp extends Component {
   constructor(props) {
@@ -20,9 +19,9 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
-    this.props.signUserUp(this.state)
-
+    const { signUserUp, history } = this.props;
+    signUserUp(this.state);
+    history.push('/signIn');
   }
 
   handleChange = e => {
@@ -82,11 +81,13 @@ class SignUp extends Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-      signUserUp: (userInfo) => dispatch(signUserUp(userInfo))
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  signUserUp: userInfo => dispatch(signUserUp(userInfo)),
+});
 
-export default connect(null, mapDispatchToProps)(SignUp)
-/* eslint-enable */
+SignUp.propTypes = {
+  signUserUp: PropTypes.func.isRequired,
+  history: PropTypes.objectOf.isRequired,
+};
+
+export default connect(null, mapDispatchToProps)(SignUp);

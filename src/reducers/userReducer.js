@@ -2,20 +2,16 @@ const initialState = {
   loggedIn: false,
   user: {},
 };
-/* eslint-disable */
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SET_USER":
-      const anyName = {
+    case 'SET_USER':
+      return {
         loggedIn: action.payload.loggedIn,
         user: { ...action.payload.user },
       };
-      console.log(anyName);
-      return anyName;
 
-    case "LOG_OUT":
+    case 'LOG_OUT':
       localStorage.clear();
-      console.log('hello');
       return {
         loggedIn: false,
         user: {},
@@ -26,4 +22,3 @@ const userReducer = (state = initialState, action) => {
 };
 
 export default userReducer;
-/* eslint-enable */

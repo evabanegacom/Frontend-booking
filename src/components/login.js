@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions/actions';
-/* eslint-disable */
-
-// import PropTypes from 'prop-types';
 
 class LogIn extends Component {
   constructor(props) {
@@ -20,7 +18,9 @@ class LogIn extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.fetchUser(this.state)
+    const { fetchUser, history } = this.props;
+    fetchUser(this.state);
+    history.push('/bikes');
   }
 
   handleChange = e => {
@@ -33,7 +33,7 @@ class LogIn extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Register</h5>
+          <h5 className="grey-text text-darken-3">Login</h5>
           <div className="input-field">
             <label htmlFor="email">
               Email
@@ -69,11 +69,12 @@ class LogIn extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-      fetchUser: (userInfo) => dispatch(fetchUser(userInfo))
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  fetchUser: userInfo => dispatch(fetchUser(userInfo)),
+});
 
-export default connect(null, mapDispatchToProps)(LogIn)
-/* eslint-enable */
+LogIn.propTypes = {
+  fetchUser: PropTypes.func.isRequired,
+  history: PropTypes.objectOf.isRequired,
+};
+export default connect(null, mapDispatchToProps)(LogIn);
