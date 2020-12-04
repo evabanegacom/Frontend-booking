@@ -1,31 +1,31 @@
 import {
-  FETCH_CARS_BEGIN,
-  FETCH_CARS_SUCCESS,
-  FETCH_CARS_FAILURE,
+  FETCH_CAR_DETAILS_BEGIN,
+  FETCH_CAR_DETAILS_SUCCESS,
+  FETCH_CAR_DETAILS_FAILURE,
 } from '../actions/actions';
 
 const initialState = {
-  cars: [],
+  car: [],
   error: null,
   waiting: 'wait for it',
 };
 
-const carReducer = (state = initialState, action) => {
+const carDetailsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_CARS_BEGIN:
+    case FETCH_CAR_DETAILS_BEGIN:
       return {
         ...state,
         waiting: 'wait for it',
       };
 
-    case FETCH_CARS_SUCCESS:
+    case FETCH_CAR_DETAILS_SUCCESS:
       return {
         ...state,
         waiting: 'here we are',
-        cars: action.payload,
+        car: action.payload,
       };
 
-    case FETCH_CARS_FAILURE:
+    case FETCH_CAR_DETAILS_FAILURE:
       return {
         ...state,
         error: action.payload.error,
@@ -37,4 +37,4 @@ const carReducer = (state = initialState, action) => {
   }
 };
 
-export default carReducer;
+export default carDetailsReducer;

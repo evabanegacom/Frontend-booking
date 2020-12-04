@@ -4,6 +4,10 @@ export const FETCH_CARS_BEGIN = 'FETCH_CARS_BEGIN';
 export const FETCH_CARS_SUCCESS = 'FETCH_CARS_SUCCESS';
 export const FETCH_CARS_FAILURE = 'FETCH_CARS_FAILURE';
 
+export const FETCH_CAR_DETAILS_BEGIN = 'FETCH_CARS_DETAILS_BEGIN';
+export const FETCH_CAR_DETAILS_SUCCESS = 'FETCH_CARS_DETAILS_SUCCES';
+export const FETCH_CAR_DETAILS_FAILURE = 'FETCH_CARS_DETAILS_FAILURE';
+
 export const fetchCarsBegin = () => ({
   type: FETCH_CARS_BEGIN,
 });
@@ -15,6 +19,22 @@ export const fetchCarsSuccess = data => ({
 
 export const fetchCarsFailure = error => ({
   type: FETCH_CARS_FAILURE,
+  payload: error,
+});
+
+// car setails
+
+export const fetchCarDetailsBegin = () => ({
+  type: FETCH_CAR_DETAILS_BEGIN,
+});
+
+export const fetchCarDetailsSuccess = data => ({
+  type: FETCH_CAR_DETAILS_SUCCESS,
+  payload: data,
+});
+
+export const fetchCarDetailsFailure = error => ({
+  type: FETCH_CAR_DETAILS_FAILURE,
   payload: error,
 });
 
@@ -78,5 +98,20 @@ export const getCars = () => dispatch => {
     .then(res => res.json())
     .then(data => {
       dispatch(fetchCarsSuccess(data));
+    });
+};
+
+export const getCarDetails = id => dispatch => {
+  dispatch(fetchCarsBegin());
+  fetch(`http://localhost:3001/api/v1/cars/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+    .then(res => res.json())
+    .then(data => {
+      dispatch(fetchCarDetailsSuccess(data));
     });
 };

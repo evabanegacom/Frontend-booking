@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
-import { getCars, autoLogin } from '../actions/actions';
+import BikeInfo from './bikeInfo';
+import { getCars } from '../actions/actions';
 
 /* eslint-disable */
 class BikeList extends Component {
   componentDidMount() {
-    const { theCars, autoLogin } = this.props;
-    autoLogin()
+    const { theCars } = this.props;
     theCars()
   }
 
@@ -17,8 +16,7 @@ class BikeList extends Component {
       cars.map(car => {
         return (
           <div>
-            <p key={car.id}>{car.name}</p>
-            <img src={car.avatar.url} alt=""/>
+            <BikeInfo car={car} key={ car.id }/>
           </div>
         )
       })
@@ -40,7 +38,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  autoLogin: () => dispatch(autoLogin()),
   theCars: () => {
     dispatch(getCars());
   },
