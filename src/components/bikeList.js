@@ -1,10 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+// import { Link } from 'react-router-dom';
+import { getCars, autoLogin } from '../actions/actions';
 
-const BikeList = () => (
-  <div>
-    <h1>Bike List goes here</h1>
-    <Link to="/bike/:id">Bike Info</Link>
-  </div>
-);
-export default BikeList;
+/* eslint-disable */
+class BikeList extends Component {
+  componentDidMount() {
+    const { theCars, autoLogin } = this.props;
+    autoLogin()
+    theCars()
+  }
+
+  render() {
+    const { cars } = this.props;
+    const checkCars = cars.length ? (
+      cars.map(car => {
+        return (
+          <div>
+            <p key={car.id}>{car.name}</p>
+            <img src={car.avatar.url} alt=""/>
+          </div>
+        )
+      })
+    ) : (
+      <div>
+        <p>wait for it</p>
+      </div>
+    )
+    return (
+      <div>
+        {checkCars}
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = state => ({
+  cars: state.carReducer.cars,
+});
+
+const mapDispatchToProps = dispatch => ({
+  autoLogin: () => dispatch(autoLogin()),
+  theCars: () => {
+    dispatch(getCars());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BikeList);
+/* eslint-enable */
