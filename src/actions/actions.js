@@ -1,5 +1,7 @@
 const setUser = payload => ({ type: 'SET_USER', payload });
 
+const startBooking = payload => ({ type: 'SET_BOOKING', payload });
+
 export const FETCH_CARS_BEGIN = 'FETCH_CARS_BEGIN';
 export const FETCH_CARS_SUCCESS = 'FETCH_CARS_SUCCESS';
 export const FETCH_CARS_FAILURE = 'FETCH_CARS_FAILURE';
@@ -7,6 +9,8 @@ export const FETCH_CARS_FAILURE = 'FETCH_CARS_FAILURE';
 export const FETCH_CAR_DETAILS_BEGIN = 'FETCH_CARS_DETAILS_BEGIN';
 export const FETCH_CAR_DETAILS_SUCCESS = 'FETCH_CARS_DETAILS_SUCCES';
 export const FETCH_CAR_DETAILS_FAILURE = 'FETCH_CARS_DETAILS_FAILURE';
+
+export const FETCH_BOOKING_SUCCESS = 'FETCH_BOOKING_SUCCESS';
 
 export const fetchCarsBegin = () => ({
   type: FETCH_CARS_BEGIN,
@@ -39,6 +43,13 @@ export const fetchCarDetailsFailure = error => ({
 });
 
 export const logUserOut = () => ({ type: 'LOG_OUT' });
+
+// Booking REGISTRATION
+
+export const setBooking = data => ({
+  type: FETCH_BOOKING_SUCCESS,
+  payload: data,
+});
 
 export const fetchUser = userInfo => dispatch => {
   fetch('http://localhost:3001/api/v1/login', {
@@ -113,5 +124,21 @@ export const getCarDetails = id => dispatch => {
     .then(res => res.json())
     .then(data => {
       dispatch(fetchCarDetailsSuccess(data));
+    });
+};
+
+export const userBooking = userInfo => dispatch => {
+  fetch('http://localhost:3001/api/v1/bookings', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+    body: JSON.stringify(userInfo),
+  })
+    .then(res => res.json())
+    .then(data => {
+      dispatch(startBooking(data));
     });
 };

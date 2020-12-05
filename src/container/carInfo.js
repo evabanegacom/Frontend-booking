@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCarDetails } from '../actions/actions';
+import Booking from './booking';
 
 /* eslint-disable */
 class CarInfo extends Component {
@@ -11,12 +12,11 @@ class CarInfo extends Component {
   }
   render() {
     const { carDetails } = this.props;
-    // const carsId = this.props.match.params.id
-    // const checkCar = carDetails === carsId
     const theCar = carDetails ? (
         <div>
           <p>{carDetails.manufacturer}</p>
           <p>{carDetails.name}</p>
+          <Booking carId={carDetails.id}/>
         </div>
     ) : (
         <p>no cars here</p>
