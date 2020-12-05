@@ -1,16 +1,16 @@
 const initialState = {
-  booking: [],
+  userBooking: [],
   error: null,
   waiting: 'wait for it',
 };
 
-const bookingReducer = (state = initialState, action) => {
+const bookingDetailReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_BOOKING':
+    case 'SET_BOOKING_DETAIL':
       return {
         ...state,
         waiting: 'here we are',
-        booking: action.payload,
+        userBooking: action.payload,
       };
 
     default:
@@ -18,4 +18,4 @@ const bookingReducer = (state = initialState, action) => {
   }
 };
 
-export default bookingReducer;
+export default bookingDetailReducer;
