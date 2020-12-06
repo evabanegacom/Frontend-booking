@@ -5,12 +5,12 @@ import { userBookingDetail, getCars } from '../actions/actions';
 class BookingDetail extends Component {
   componentDidMount() {
     const { getDetail, theCars } = this.props;
-    theCars()
+    theCars();
     getDetail();
   }
 
   render() {
-    const { bookingDetail, cars } = this.props;
+    const { bookingDetail, cars, userReducer } = this.props;
     const checkDetail = this.props.match.params.id;
     const mappin = bookingDetail.filter(
       (booking) => booking.user_id === parseInt(checkDetail)
@@ -19,7 +19,12 @@ class BookingDetail extends Component {
       mappin.map((mapps) => {
         const carCheck = cars.filter((car) => car.id === mapps.car_id);
         const checkingCar = carCheck ? (
-          carCheck.map((checks) => <div><p>{checks.name}</p></div>)
+          carCheck.map((checks) => (
+            <div>
+              <p>{checks.name}</p>
+              <img src={checks.avatar.url} alt='' />
+            </div>
+          ))
         ) : (
           <p>no cars available</p>
         );
@@ -29,16 +34,16 @@ class BookingDetail extends Component {
       <p>nothing here</p>
     );
 
-    const checking = mappin ? (
+    const checking = mappin.length ? (
       mappin.map((mapp) => <p>{mapp.description}</p>)
     ) : (
-      <p>nothing here</p>
+      <p>{userReducer.user.name} you have no bookings yet</p>
     );
 
     const combine = () => (
       <div className="bookingDetails">
-        <p>{checking}</p>
-        <p>{checkForCar}</p>
+        <div>{checking}</div>
+        <div>{checkForCar}</div>
       </div>
     );
     return (
@@ -53,6 +58,7 @@ class BookingDetail extends Component {
 const mapStateToProps = (state) => ({
   bookingDetail: state.bookingDetailReducer.userBooking,
   cars: state.carReducer.cars,
+  userReducer: state.userReducer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
