@@ -18,7 +18,7 @@ class BookingDetail extends Component {
       mappin.map((mapps) => {
         const carCheck = cars.filter((car) => car.id === mapps.car_id);
         const checkingCar = carCheck ? (
-          carCheck.map((checks) => <p>{checks.name}</p>)
+          carCheck.map((checks) => <div><p>{checks.name}</p></div>)
         ) : (
           <p>no cars available</p>
         );
