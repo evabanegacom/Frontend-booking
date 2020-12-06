@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { userBooking } from '../actions/actions';
 
 /* eslint-disable */
@@ -21,13 +21,12 @@ class Booking extends Component {
   }
 
   handleSubmit = e => {
-    const { history } = this.props
     e.preventDefault();
-    const { bookings, userReducer } = this.props;
+    const { bookings, userReducer, history } = this.props;
     if( userReducer.loggedIn === true){
       bookings(this.state);
     }
-   hisrory.push()
+   history.push(`/user/${userReducer.user.id}/bookings`)
   }
 
   handleChange = e => {
@@ -45,7 +44,7 @@ class Booking extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Register</h5>
+          <h5 className="grey-text text-darken-3">BOOK YOUR CAR</h5>
           <div className="input-field">
             <label htmlFor="user">
               User
@@ -119,5 +118,5 @@ const mapStateToProps = state => ({
   userReducer: state.userReducer,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Booking);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Booking));
  /* eslint-enable */
