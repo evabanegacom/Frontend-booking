@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { userBooking } from '../actions/actions';
 
 /* eslint-disable */
@@ -20,11 +21,13 @@ class Booking extends Component {
   }
 
   handleSubmit = e => {
+    const { history } = this.props
     e.preventDefault();
     const { bookings, userReducer } = this.props;
     if( userReducer.loggedIn === true){
       bookings(this.state);
     }
+   hisrory.push()
   }
 
   handleChange = e => {
@@ -102,6 +105,7 @@ class Booking extends Component {
             </button>
           </div>
         </form>
+        <Link to={`/user/${userReducer.user.id}/bookings`} key={Math.random()} >bookings</Link>
       </div>
     );
   }

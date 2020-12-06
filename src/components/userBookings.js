@@ -9,9 +9,9 @@ class BookingDetail extends Component {
   }
   
   render() {
-    const { bookingDetail } = this.props
+    const { bookingDetail, cars } = this.props
+    console.log(cars)
     const checkDetail = this.props.match.params.id
-    console.log(this.props)
     const mappin = bookingDetail.filter(stock => stock.user_id === parseInt(checkDetail))
     const checking = mappin ? (
       mappin.map(mapp => (<p>{mapp.description}</p>)
@@ -28,6 +28,7 @@ class BookingDetail extends Component {
 
 const mapStateToProps = state => ({
   bookingDetail: state.bookingDetailReducer.userBooking,
+  cars: state.carReducer.cars,
 })
 
 const mapDispatchToProps = dispatch => ({
