@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { userBookingDetail } from '../actions/actions';
+import { userBookingDetail, getCars } from '../actions/actions';
 /* eslint-disable */
 class BookingDetail extends Component {
   componentDidMount() {
-    const { getDetail } = this.props;
+    const { getDetail, theCars } = this.props;
+    theCars()
     getDetail();
   }
 
@@ -57,6 +58,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getDetail: () => {
     dispatch(userBookingDetail());
+  },
+  theCars: () => {
+    dispatch(getCars());
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(BookingDetail);
