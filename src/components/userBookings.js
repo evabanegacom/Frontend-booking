@@ -22,7 +22,7 @@ class BookingDetail extends Component {
           carCheck.map((checks) => (
             <div>
               <p>{checks.name}</p>
-              <img src={checks.avatar.url} alt='' />
+              <img src={checks.avatar.url} alt="" />
             </div>
           ))
         ) : (
@@ -35,7 +35,13 @@ class BookingDetail extends Component {
     );
 
     const checking = mappin.length ? (
-      mappin.map((mapp) => <p>{mapp.description}</p>)
+      mappin.map((mapp) => (
+        <div>
+          <p>{mapp.description}</p>
+          <p>{mapp.city}</p>
+          <p>{mapp.date}</p>
+        </div>
+      ))
     ) : (
       <p>{userReducer.user.name} you have no bookings yet</p>
     );

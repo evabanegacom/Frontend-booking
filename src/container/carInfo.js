@@ -16,10 +16,10 @@ class CarInfo extends Component {
         <div>
           <p>{carDetails.manufacturer}</p>
           <p>{carDetails.name}</p>
-          <Booking carId={carDetails.id}/>
+          <Booking carId={carDetails}/>
         </div>
     ) : (
-        <p>no cars here</p>
+        <p>wait for it</p>
     )  
     return (
       <div>
