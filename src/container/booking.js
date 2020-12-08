@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { userBooking } from '../actions/actions';
-
-/* eslint-disable */
 
 class Booking extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user_id: "",
-      car_id: "",
-      date: "",
-      description: "",
-      username: "",
-      model: "",
-      city: "",
+      user_id: '',
+      car_id: '',
+      date: '',
+      description: '',
+      username: '',
+      model: '',
+      city: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     const { bookings, userReducer, history } = this.props;
     if (userReducer.loggedIn === true) {
@@ -32,11 +31,11 @@ class Booking extends Component {
     history.push(`/user/${userReducer.user.id}/bookings`);
   };
 
-  handleChange = (e) => {
-    const names = document.querySelector(".nameOnly");
-    const cars = document.querySelector(".carOnly");
-    const carmodel = document.querySelector(".carmodelOnly");
-    const username = document.querySelector(".usernameOnly");
+  handleChange = e => {
+    const names = document.querySelector('.nameOnly');
+    const cars = document.querySelector('.carOnly');
+    const carmodel = document.querySelector('.carmodelOnly');
+    const username = document.querySelector('.usernameOnly');
     this.setState({
       [e.target.id]: e.target.value,
       user_id: names.value,
@@ -45,12 +44,13 @@ class Booking extends Component {
       model: carmodel.value,
     });
     this.setState({
-      city: e.target.value
+      city: e.target.value,
     });
   };
 
   render() {
     const { userReducer, carId } = this.props;
+    const { city } = this.state;
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
@@ -138,10 +138,10 @@ class Booking extends Component {
             </label>
           </div>
           <div>
-            <label>
+            <label htmlFor="city">
               Pick your favorite City:
-              <select value={this.state.city} onChange={this.handleChange}>
-                {" "}
+              <select value={city} onChange={this.handleChange}>
+                {' '}
                 <option value="Denver">Denver</option>
                 <option value="Lagos">Lagos</option>
                 <option value="Okinawa">Okinawa</option>
@@ -163,16 +163,22 @@ class Booking extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  bookings: (booking) => dispatch(userBooking(booking)),
+const mapDispatchToProps = dispatch => ({
+  bookings: booking => dispatch(userBooking(booking)),
 });
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   userReducer: state.userReducer,
 });
 
+Booking.propTypes = {
+  bookings: PropTypes.func.isRequired,
+  userReducer: PropTypes.func.isRequired,
+  carId: PropTypes.objectOf.isRequired,
+  history: PropTypes.objectOf.isRequired,
+};
+
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(withRouter(Booking));
-/* eslint-enable */

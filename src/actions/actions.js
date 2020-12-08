@@ -51,7 +51,7 @@ export const logUserOut = () => ({ type: 'LOG_OUT' });
 // Booking REGISTRATION
 
 export const fetchUser = userInfo => dispatch => {
-  fetch('http://localhost:3001/api/v1/login', {
+  fetch('https://gothic-serpent.herokuapp.com/api/v1/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export const fetchUser = userInfo => dispatch => {
 };
 
 export const signUserUp = userInfo => dispatch => {
-  fetch('http://localhost:3001/api/v1/users', {
+  fetch('https://gothic-serpent.herokuapp.com/api/v1/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ export const signUserUp = userInfo => dispatch => {
 };
 
 export const autoLogin = () => dispatch => {
-  fetch('http://localhost:3001/api/v1/auto_login', {
+  fetch('https://gothic-serpent.herokuapp.com/api/v1/auto_login', {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -98,7 +98,7 @@ export const autoLogin = () => dispatch => {
 
 export const getCars = () => dispatch => {
   dispatch(fetchCarsBegin());
-  fetch('http://localhost:3001/api/v1/cars', {
+  fetch('https://gothic-serpent.herokuapp.com/api/v1/cars', {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -113,7 +113,7 @@ export const getCars = () => dispatch => {
 
 export const getCarDetails = id => dispatch => {
   dispatch(fetchCarsBegin());
-  fetch(`http://localhost:3001/api/v1/cars/${id}`, {
+  fetch(`https://gothic-serpent.herokuapp.com/api/v1/cars/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -127,7 +127,7 @@ export const getCarDetails = id => dispatch => {
 };
 
 export const userBooking = userInfo => dispatch => {
-  fetch('http://localhost:3001/api/v1/bookings', {
+  fetch('https://gothic-serpent.herokuapp.com/api/v1/bookings', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ export const userBooking = userInfo => dispatch => {
 };
 
 export const userBookingDetail = () => dispatch => {
-  fetch('http://localhost:3001/api/v1/bookings', {
+  fetch('https://gothic-serpent.herokuapp.com/api/v1/bookings', {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',

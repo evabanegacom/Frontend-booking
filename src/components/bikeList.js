@@ -1,35 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import BikeInfo from './bikeInfo';
 import { getCars } from '../actions/actions';
 
-/* eslint-disable */
 class BikeList extends Component {
   componentDidMount() {
     const { theCars } = this.props;
-    theCars()
+    theCars();
   }
 
   render() {
     const { cars } = this.props;
     const checkCars = cars.length ? (
-      cars.map(car => {
-        return (
-          <div>
-            <BikeInfo car={car} key={ car.id }/>
-          </div>
-        )
-      })
+      cars.map(car => (
+        <div key={car.id}>
+          <BikeInfo car={car} key={car.id} />
+        </div>
+      ))
     ) : (
       <div>
         <p>wait for it</p>
       </div>
-    )
+    );
     return (
       <div>
         {checkCars}
       </div>
-    )
+    );
   }
 }
 
@@ -43,5 +41,9 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
+BikeList.propTypes = {
+  cars: PropTypes.arrayOf.isRequired,
+  theCars: PropTypes.func.isRequired,
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(BikeList);
-/* eslint-enable */

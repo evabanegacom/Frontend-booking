@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions/actions';
-/* eslint-disable */
+
 class LogIn extends Component {
   constructor(props) {
     super(props);
@@ -29,10 +29,10 @@ class LogIn extends Component {
   }
 
   render() {
-    const { userReducer, history } = this.props
-    if(userReducer.loggedIn === true){
-    history.push('/bikes')
-  }
+    const { userReducer, history } = this.props;
+    if (userReducer.loggedIn === true) {
+      history.push('/bikes');
+    }
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
@@ -83,6 +83,7 @@ const mapStateToProps = state => ({
 LogIn.propTypes = {
   fetchUser: PropTypes.func.isRequired,
   history: PropTypes.objectOf.isRequired,
+  userReducer: PropTypes.func.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
 /* eslint-enable */

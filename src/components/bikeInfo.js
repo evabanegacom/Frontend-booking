@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-/* eslint-disable */
 const BikeInfo = ({ car }) => (
-  <Link to={`/car/${car.id}`} key={car.id} >
+  <Link to={`/car/${car.id}`} key={car.id}>
     <div>
       <p>{car.name}</p>
       <img src={car.avatar.url} alt="" />
@@ -11,5 +11,8 @@ const BikeInfo = ({ car }) => (
   </Link>
 );
 
+BikeInfo.propTypes = {
+  car: PropTypes.objectOf.isRequired,
+};
+
 export default BikeInfo;
-/* eslint-enable */
