@@ -13,10 +13,9 @@ const SignedInLInks = ({ logOut }) => {
   };
 
   return (
-    <ul className="right">
-      <li><NavLink onClick={handleClick} to="/">Logout</NavLink></li>
-      <li><NavLink to="/" className="me">NN</NavLink></li>
-    </ul>
+    <div>
+      <p><NavLink onClick={handleClick} to="/">Logout</NavLink></p>
+    </div>
   );
 };
 

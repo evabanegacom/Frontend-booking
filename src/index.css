@@ -30,6 +30,19 @@ code {
   display: flex;
 }
 
+body a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .hide {
   display: none;
+}
+
+.right {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }

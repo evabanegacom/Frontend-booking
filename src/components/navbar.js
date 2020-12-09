@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { autoLogin } from '../actions/actions';
@@ -17,17 +17,26 @@ class Navbar extends React.Component {
     const { userReducer } = this.props;
     return (
       <div className="navbar">
-        {
-              !userReducer.loggedIn ? <SignedOutLinks /> : (
-                <div>
-                  <h5>
-                    Welcome,
-                    { userReducer.user.name }
-                  </h5>
-                  <SignedInLInks />
-                </div>
-              )
-            }
+        {!userReducer.loggedIn ? (
+          <SignedOutLinks />
+        ) : (
+          <div className="navbar-div">
+            <div className="homepage">
+              <Link to="/">Home</Link>
+            </div>
+            <div className="usersname">
+              <NavLink to="/bikes">bikes</NavLink>
+              <NavLink
+                to={`/user/${userReducer.user.id}/bookings`}
+                key={Math.random()}
+              >
+                <p>Bookings</p>
+              </NavLink>
+              <h5 className="nameOfUser">{userReducer.user.name}</h5>
+              <SignedInLInks />
+            </div>
+          </div>
+        )}
       </div>
     );
   }

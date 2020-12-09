@@ -15,7 +15,7 @@ body {
 }
 
 section {
-  height: 94.6vh;
+  height: 95vh;
   width: 100%;
   background: url("../images/bg.jpg");
   background-repeat: no-repeat;
@@ -105,7 +105,7 @@ h1 {
 
 @media only screen and (max-width: 960px) {
   section {
-    height: 92.7vh;
+    height: 95vh;
   }
 
   .stocks div {
@@ -115,7 +115,7 @@ h1 {
 
 @media only screen and (max-width: 768px) {
   section {
-    height: 92.7vh;
+    height: 95vh;
   }
 
   .form-container {
