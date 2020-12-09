@@ -8,14 +8,14 @@
 }
 
 .white {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: black;
-    width: 30%;
-    line-height: 30px;
-    text-align: center;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  width: 30%;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .white label {
@@ -49,23 +49,22 @@
 
 .white .input-field {
   width: 90%;
-  height:80px;
+  height: 80px;
 }
 
 .white .button-field {
-    width: 90%;
-    height:100px;
+  width: 90%;
+  height: 100px;
 }
 
 @media only screen and (max-width: 960px) {
-    .white {
-        width: 60%;
-    }
+  .white {
+    width: 60%;
   }
-
+}
 
 @media only screen and (max-width: 768px) {
-    .white {
-        width: 90%;
-    }
+  .white {
+    width: 90%;
   }
+}

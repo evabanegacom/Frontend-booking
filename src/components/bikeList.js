@@ -24,7 +24,7 @@ class BikeList extends Component {
       </div>
     );
     return (
-      <div>
+      <div className="forCars">
         {checkCars}
       </div>
     );

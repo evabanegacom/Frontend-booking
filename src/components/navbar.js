@@ -25,7 +25,7 @@ class Navbar extends React.Component {
               <Link to="/">Home</Link>
             </div>
             <div className="usersname">
-              <NavLink to="/bikes">bikes</NavLink>
+              <NavLink to="/bikes">CARS</NavLink>
               <NavLink
                 to={`/user/${userReducer.user.id}/bookings`}
                 key={Math.random()}

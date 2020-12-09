@@ -1,0 +1,12 @@
+.theCars {
+  width: 100%;
+  text-align: center;
+}
+
+.carName {
+  color: cyan;
+}
+
+.carPrice {
+  color: yellow;
+}

@@ -2,7 +2,9 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 
 const Home = () => (
-  <div />
+  <div className="ourHome">
+    <p>welcome</p>
+  </div>
 );
 
 export default Home;

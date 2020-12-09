@@ -46,3 +46,18 @@ body a {
   width: 100%;
   justify-content: space-evenly;
 }
+
+.ourHome {
+  background: url("https://www.venenews.net/wp-content/uploads/2018/08/12.-Car-rental.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 95vh;
+}
+
+.forCars {
+  display: flex;
+  background: rgb(8, 8, 59);
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
