@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signUserUp } from '../actions/actions';
+import '../cssFiles/registration.css';
 
 class SignUp extends Component {
   constructor(props) {
@@ -32,9 +33,9 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="reg">
         <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Register</h5>
+          <h3 className="reg-head">Register</h3>
           <div className="input-field">
             <label htmlFor="name">
               Name
@@ -71,7 +72,7 @@ class SignUp extends Component {
               />
             </label>
           </div>
-          <div className="input-field">
+          <div className="button-field">
             <button type="submit" className="btn pink lighten-1 z-depth-0">
               Register
             </button>

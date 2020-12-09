@@ -37,7 +37,7 @@ class LogIn extends Component {
     return (
       <section>
         <div className="form-container">
-          <form onSubmit={this.handleSubmit} className="white">
+          <form onSubmit={this.handleSubmit}>
             <h1 className="grey">Login</h1>
             <div className="control">
               <label htmlFor="email" className="email">
