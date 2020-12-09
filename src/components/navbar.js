@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { autoLogin } from '../actions/actions';
 import SignedInLInks from '../container/signInLink';
 import SignedOutLinks from '../container/signOutLInk';
+import '../cssFiles/navbar.css';
 
 class Navbar extends React.Component {
   componentDidMount() {
@@ -15,14 +16,14 @@ class Navbar extends React.Component {
   render() {
     const { userReducer } = this.props;
     return (
-      <div className="App">
+      <div className="navbar">
         {
               !userReducer.loggedIn ? <SignedOutLinks /> : (
                 <div>
-                  <h1>
+                  <h5>
                     Welcome,
                     { userReducer.user.name }
-                  </h1>
+                  </h5>
                   <SignedInLInks />
                 </div>
               )

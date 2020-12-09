@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions/actions';
+import '../cssFiles/login.css';
 
 class LogIn extends Component {
   constructor(props) {
@@ -20,13 +21,13 @@ class LogIn extends Component {
     e.preventDefault();
     const { fetchUser } = this.props;
     fetchUser(this.state);
-  }
+  };
 
   handleChange = e => {
     this.setState({
       [e.target.id]: e.target.value,
     });
-  }
+  };
 
   render() {
     const { userReducer, history } = this.props;
@@ -34,40 +35,46 @@ class LogIn extends Component {
       history.push('/bikes');
     }
     return (
-      <div className="container">
-        <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Login</h5>
-          <div className="input-field">
-            <label htmlFor="email">
-              Email
-              <input
-                id="email"
-                autoComplete="off"
-                required
-                type="email"
-                onChange={this.handleChange}
-              />
-            </label>
-          </div>
-          <div className="input-field">
-            <label htmlFor="password">
-              Password
-              <input
-                id="password"
-                required
-                autoComplete="off"
-                type="password"
-                onChange={this.handleChange}
-              />
-            </label>
-          </div>
-          <div className="input-field">
-            <button type="submit" className="btn pink lighten-1 z-depth-0">
-              Login
-            </button>
-          </div>
-        </form>
-      </div>
+      <section>
+        <div className="form-container">
+          <form onSubmit={this.handleSubmit} className="white">
+            <h1 className="grey">Login</h1>
+            <div className="control">
+              <label htmlFor="email" className="email">
+                Email
+                <input
+                  id="email"
+                  autoComplete="off"
+                  required
+                  type="email"
+                  onChange={this.handleChange}
+                  className="login-input"
+                  placeholder="Email"
+                />
+              </label>
+            </div>
+            <div className="control">
+              <label htmlFor="password" className="email">
+                Password
+                <input
+                  id="password"
+                  required
+                  autoComplete="off"
+                  type="password"
+                  onChange={this.handleChange}
+                  className="login-input"
+                  placeholder="password"
+                />
+              </label>
+            </div>
+            <div className="control">
+              <button type="submit" className="login-button">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
     );
   }
 }

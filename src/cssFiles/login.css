@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans";
+}
+
+.email {
+  font-size: 30px;
+  color: white;
+  font-weight: bolder;
+}
+
+section {
+  height: 94.6vh;
+  width: 100%;
+  background: url("../images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-input {
+  height: 50px;
+  font-size: 25px;
+  background: rgb(235, 235, 243);
+  border-radius: 10px;
+}
+
+.form-container {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  border-radius: 10px;
+  box-shadow: 7px 7px 60px #000;
+  width: 40%;
+}
+
+form {
+  width: 100%;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 1em;
+  color: cyan;
+}
+
+.control {
+  text-align: center;
+}
+
+.control input {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border: none;
+  outline: none;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.control input[type="text"] {
+  color: rgb(54, 54, 61);
+}
+
+.control button[type="submit"] {
+  background: green;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  height: 50px;
+  text-transform: uppercase;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  font-size: 20px;
+  color: cyan;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.control input[type="submit"]:hover {
+  opacity: 1;
+}
+
+.link {
+  text-align: center;
+}
+
+.link a {
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.link a:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 960px) {
+  section {
+    height: 92.7vh;
+  }
+
+  .stocks div {
+    min-width: 49%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  section {
+    height: 92.7vh;
+  }
+
+  .form-container {
+    min-width: 100%;
+  }
+
+  form {
+    max-width: 100%;
+  }
+}
