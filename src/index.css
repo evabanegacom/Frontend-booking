@@ -61,3 +61,10 @@ body a {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+@media only screen and (max-width: 768px) {
+  .forCars {
+    display: flex;
+    flex-direction: column;
+  }
+}

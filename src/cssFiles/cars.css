@@ -10,3 +10,10 @@
 .carPrice {
   color: yellow;
 }
+
+@media only screen and (max-width: 768px) {
+  .theCars {
+    width: 95%;
+    margin: auto;
+  }
+}
