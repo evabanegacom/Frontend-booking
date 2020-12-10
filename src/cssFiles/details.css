@@ -1,0 +1,46 @@
+.carItems {
+  border-bottom: 1px solid red;
+  background: rgb(32, 3, 8);
+  color: white;
+  line-height: 40px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.bookingDetails {
+  background: rgb(24, 23, 23);
+  display: flex;
+}
+
+.detailDesc {
+  display: flex;
+  border: 1px solid white;
+}
+
+.city {
+  margin-left: 20px;
+}
+
+.child {
+  width: 60%;
+}
+
+.childCar {
+  width: 35%;
+}
+
+.desc {
+  width: 40%;
+}
+
+.carDesc {
+  width: 30%;
+  border-right: 1px solid white;
+}
+
+.carItself {
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+}

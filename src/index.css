@@ -26,10 +26,6 @@ code {
     monospace;
 }
 
-.bookingDetails {
-  display: flex;
-}
-
 body a {
   text-decoration: none;
   color: white;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { userBookingDetail, getCars } from '../actions/actions';
+import '../cssFiles/details.css';
 
 class BookingDetail extends Component {
   componentDidMount() {
@@ -25,9 +26,10 @@ class BookingDetail extends Component {
         const carCheck = cars.filter(car => car.id === mapps.car_id);
         const checkingCar = carCheck ? (
           carCheck.map(checks => (
-            <div key={checks.id}>
+            <div className="carItself" key={checks.id}>
               <p>{checks.name}</p>
               <img src={checks.avatar.url} alt="" />
+              <p>{checks.price}</p>
             </div>
           ))
         ) : (
@@ -41,10 +43,23 @@ class BookingDetail extends Component {
 
     const checking = mappin.length ? (
       mappin.map(mapp => (
-        <div key={mapp.id}>
-          <p>{mapp.description}</p>
-          <p>{mapp.city}</p>
-          <p>{mapp.date}</p>
+        <div className="carItems" key={mapp.id}>
+          <div className="detailDesc">
+            <p className="carDesc">Description: </p>
+            <p className="city desc">{mapp.description}</p>
+          </div>
+          <div className="detailDesc">
+            <p className="carDesc">City:</p>
+            <p className="city">{mapp.city}</p>
+          </div>
+          <div className="detailDesc">
+            <p className="carDesc">Date</p>
+            <p className="city">{mapp.date}</p>
+          </div>
+          <div className="detailDesc">
+            <p className="carDesc">Car</p>
+            <p className="city">{mapp.date}</p>
+          </div>
         </div>
       ))
     ) : (
@@ -57,13 +72,12 @@ class BookingDetail extends Component {
 
     const combine = () => (
       <div className="bookingDetails">
-        <div>{checking}</div>
-        <div>{checkForCar}</div>
+        <div className="child">{checking}</div>
+        <div className="childCar">{checkForCar}</div>
       </div>
     );
     return (
       <div>
-        booking details goes here
         {combine()}
       </div>
     );
