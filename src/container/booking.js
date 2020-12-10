@@ -142,6 +142,7 @@ class Booking extends Component {
               Pick your favorite City:
               <select value={city} onChange={this.handleChange}>
                 {' '}
+                <option value="no CITY SELECTED">Select</option>
                 <option value="Denver">Denver</option>
                 <option value="Lagos">Lagos</option>
                 <option value="Okinawa">Okinawa</option>
