@@ -3,22 +3,20 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getCarDetails } from '../actions/actions';
 import Booking from './booking';
-
+/* eslint-disable */
 class CarInfo extends Component {
   componentDidMount() {
-    console.log('something');
-
     const { details } = this.props;
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
-
+    details(id)
     // const carId = this.props.match.params.id
-    details(id);
   }
 
   render() {
-    const { carDetails } = this.props;
+    const { carDetails } = this.props
+    const carUrl = carDetails.avatar ? (carDetails.avatar.url) : ("")
     const theCar = !carDetails.length ? (
       <div>
         <p>{carDetails.manufacturer}</p>
@@ -28,7 +26,7 @@ class CarInfo extends Component {
         <p>{carDetails.price}</p>
         <p>{carDetails.model}</p>
         <p>{carDetails.category}</p>
-        <img src={carDetails.avatar.url} alt="" />
+        <img src={carUrl} alt="mustang" />
         <Booking carId={carDetails} />
       </div>
     ) : (
@@ -58,3 +56,4 @@ CarInfo.propTypes = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CarInfo);
+/* eslint-enable */

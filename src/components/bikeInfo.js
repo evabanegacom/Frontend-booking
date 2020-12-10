@@ -5,7 +5,7 @@ import '../cssFiles/cars.css';
 
 const BikeInfo = ({ car }) => (
   <Link to={`/car/${car.id}`} key={car.id}>
-    <div className="theCars">
+    <div key={car.id} className="theCars">
       <p className="carName">{car.name}</p>
       <img src={car.avatar.url} alt="" />
       <p className="carPrice">{car.price}</p>
