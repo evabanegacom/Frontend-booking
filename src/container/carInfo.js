@@ -28,9 +28,11 @@ class CarInfo extends Component {
         <div className="carousel">cars goes here carousel</div>
         <div className="carDesign showCar">
           <div className="theDetails">
-            <p>{carDetails.manufacturer}</p>
-            <p>{carDetails.price}</p>
-            <p>{carDetails.country}</p>
+            <div className="carNames"><p>{carDetails.name}</p></div>
+            <div className="manufacturer"><p>{carDetails.manufacturer}</p></div>
+            <div className="lifestyle"><p>{carDetails.price}</p></div>
+            <div className="lifestyle"><p>{carDetails.country}</p></div>
+            <div className="socialMedia"><p>socia media handles</p></div>
           </div>
           <div className="mustang">
             <p>{carDetails.name}</p>

@@ -30,11 +30,11 @@
 }
 
 .carDesign {
-  border: 1px solid red;
-  width: 80%;
+  border: 4px solid rgb(197, 192, 192);
+  width: 60%;
   display: flex;
   justify-content: space-evenly;
-  height: 60vh;
+  height: 70vh;
   margin-top: 20px;
 }
 
@@ -50,6 +50,49 @@
   width: 450px;
 }
 
+.theDetails {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgb(247, 241, 241);
+  padding-top: 35px;
+}
+
+.socialMedia {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.manufacturer {
+  background-color: rgb(57, 247, 57);
+  border-radius: 5px;
+  height: 40px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.carNames {
+  font-weight: bolder;
+  margin-top: -30px;
+}
+
+.lifestyle p {
+  font-weight: bolder;
+}
+
+.manufacturer p {
+  font-weight: bolder;
+}
+
+.theDetails div {
+  margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 960px) {
   .form-con {
     width: 60%;
@@ -63,10 +106,10 @@
     width: 100%;
   }
 
-  .theDetails,
+  /* .theDetails,
   .otherDetails {
     display: none;
-  }
+  } */
 }
 
 @media only screen and (max-width: 768px) {
@@ -75,12 +118,16 @@
   }
 
   .mustang {
-    width: 90%;
+    width: 100%;
   }
 
   .theDetails,
   .otherDetails {
     display: none;
+  }
+
+  .bookButton {
+    width: 80%;
   }
 
   .mustang img {

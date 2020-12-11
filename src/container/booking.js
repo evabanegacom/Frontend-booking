@@ -53,7 +53,6 @@ class Booking extends Component {
     const { userReducer, carId } = this.props;
     const { city } = this.state;
     const revealCar = () => {
-      const forms = document.querySelector('.showCar');
       document.querySelector('.form-con').classList.add('hide');
       document.querySelector('.showCar').classList.remove('hide');
       document.querySelector('.showCar').classList.add('carDesign');
