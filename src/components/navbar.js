@@ -21,6 +21,33 @@ class Navbar extends React.Component {
           <SignedOutLinks />
         ) : (
           <div className="navbar-div">
+            <div className="small-nav">
+              <div className="smallName">
+                <h5 className="nameOfUser">{userReducer.user.name}</h5>
+              </div>
+              <div className="small-menu">
+                <div className="dropdown">
+                  <button className="small-but" type="button">
+                    <i
+                      className="fa fa-bars"
+                      aria-label="button"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <div className="dropdown-content">
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/bikes">CARS</NavLink>
+                    <NavLink
+                      to={`/user/${userReducer.user.id}/bookings`}
+                      key={Math.random()}
+                    >
+                      <p>Bookings</p>
+                    </NavLink>
+                    <SignedInLInks />
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="homepage">
               <Link to="/">Home</Link>
             </div>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { userBooking } from '../actions/actions';
+import '../cssFiles/booking.css';
 
 class Booking extends Component {
   constructor(props) {
@@ -102,7 +103,7 @@ class Booking extends Component {
           <div className="input-field">
             <label htmlFor="model">
               Car model
-              <textarea
+              <input
                 id="model"
                 required
                 autoComplete="off"
@@ -125,7 +126,7 @@ class Booking extends Component {
               />
             </label>
           </div>
-          <div className="input-field">
+          <div className="input-field forDesc">
             <label htmlFor="password">
               Description
               <textarea
@@ -134,19 +135,22 @@ class Booking extends Component {
                 autoComplete="off"
                 type="text"
                 onChange={this.handleChange}
+                className="description"
               />
             </label>
           </div>
           <div>
             <label htmlFor="city">
-              Pick your favorite City:
-              <select value={city} onChange={this.handleChange}>
+              Pick your favorite City:&nbsp;&nbsp;&nbsp;
+              <select className="favCity" value={city} onChange={this.handleChange}>
                 {' '}
-                <option value="no CITY SELECTED">Select</option>
+                <option value="CITY">Select</option>
                 <option value="Denver">Denver</option>
                 <option value="Lagos">Lagos</option>
                 <option value="Okinawa">Okinawa</option>
                 <option value="Normandy">Normandy</option>
+                <option value="Tokyo">Tokyo</option>
+                <option value="Madrid">Madrid</option>
               </select>
             </label>
           </div>
@@ -156,9 +160,6 @@ class Booking extends Component {
             </button>
           </div>
         </form>
-        <Link to={`/user/${userReducer.user.id}/bookings`} key={Math.random()}>
-          bookings
-        </Link>
       </div>
     );
   }

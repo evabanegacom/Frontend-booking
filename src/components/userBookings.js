@@ -57,8 +57,8 @@ class BookingDetail extends Component {
             <p className="city">{mapp.date}</p>
           </div>
           <div className="detailDesc">
-            <p className="carDesc">Car</p>
-            <p className="city">{mapp.date}</p>
+            <p className="carDesc">User</p>
+            <p className="city">{mapp.username}</p>
           </div>
         </div>
       ))

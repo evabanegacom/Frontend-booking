@@ -55,14 +55,71 @@
     display: none;
   }
 
-  .navbar-div .small-nav {
-    display: flex;
+  .navbar-div .homepage {
+    display: none;
   }
 
-  .bar {
-    color: red;
-    width: 30px;
-    height: 100%;
+  .navbar-div .small-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  }
+
+  .small-menu {
+    width: 65%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .smallName {
+    width: 30%;
+  }
+
+  .fa-bars {
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 50px;
+  }
+
+  .small-but {
+    background-color: blue;
+    border: none;
+    width: 30%;
+    outline: none;
+  }
+
+  .dropdown {
+    overflow: hidden;
+    line-height: 20px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    float: none;
+    color: rgb(12, 1, 12);
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    text-align: left;
+    background-color: white;
+  }
+
+  .dropdown-content a:hover {
+    background-color: rgb(148, 131, 131);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
 }
 
