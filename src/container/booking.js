@@ -53,9 +53,9 @@ class Booking extends Component {
     const { userReducer, carId } = this.props;
     const { city } = this.state;
     return (
-      <div className="container">
-        <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">BOOK YOUR CAR</h5>
+      <div className="booking-container">
+        <form onSubmit={this.handleSubmit} className="car-form forms">
+          <h3 className="grey-text text-darken-3">BOOK YOUR CAR</h3>
           <div className="hide">
             <label htmlFor="user">
               User
