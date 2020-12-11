@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../cssFiles/cars.css';
 
-const BikeInfo = ({ car }) => (
+const CarSlider = ({ car }) => (
   <Link to={`/car/${car.id}`} key={car.id}>
-    <div key={car.id} className="theCars">
+    <div key={car.id}>
       <p className="carName">{car.name}</p>
       <img src={car.avatar.url} alt="" />
       <p className="carPrice">{car.price}</p>
@@ -13,8 +13,8 @@ const BikeInfo = ({ car }) => (
   </Link>
 );
 
-BikeInfo.propTypes = {
+CarSlider.propTypes = {
   car: PropTypes.objectOf.isRequired,
 };
 
-export default withRouter(BikeInfo);
+export default CarSlider;

@@ -1,38 +1,93 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getCarDetails } from '../actions/actions';
-import Booking from './booking';
-import '../cssFiles/carInfo.css';
+/* eslint-disable */
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { getCarDetails, getCars } from "../actions/actions";
+import Booking from "./booking";
+import BikeInfo from "../components/bikeInfo";
+import "../cssFiles/carInfo.css";
 
 class CarInfo extends Component {
   componentDidMount() {
-    const { details } = this.props;
+    const { details, theCars } = this.props;
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
     details(id);
+    theCars();
     // const carId = this.props.match.params.id
   }
 
   render() {
-    const { carDetails } = this.props;
+    const { carDetails, cars } = this.props;
+    const slideCars = cars.length ? (
+      cars.map((car) => (
+        <div key={car.id}>
+          <BikeInfo car={car} key={car.id} />
+        </div>
+      ))
+    ) : (
+      <div>
+        <p>wait for it</p>
+      </div>
+    );
     const revealForm = () => {
-      document.querySelector('.form-con').classList.remove('hide');
-      document.querySelector('.carDesign').classList.add('hide');
-      document.querySelector('.carDesign').classList.remove('carDesign');
+      document.querySelector(".form-con").classList.remove("hide");
+      document.querySelector(".carDesign").classList.add("hide");
+      document.querySelector(".carDesign").classList.remove("carDesign");
     };
-    const carUrl = carDetails.avatar ? carDetails.avatar.url : '';
+    const carUrl = carDetails.avatar ? carDetails.avatar.url : "";
     const theCar = !carDetails.length ? (
       <div className="carInfos">
-        <div className="carousel">cars goes here carousel</div>
+        <div className="carousel">
+          <Slider className="slider"
+            dots={false}
+            slidesToShow={4}
+            slidesToScroll={2}
+            autoplay={true}
+            autoplaySpeed={3000}
+          >
+            {slideCars}
+          </Slider>
+          <Slider className="sliders"
+            dots={false}
+            slidesToShow={1}
+            slidesToScroll={2}
+            autoplay={true}
+            autoplaySpeed={3000}
+          >
+            {slideCars}
+          </Slider>
+          <Slider className="slider2"
+            dots={false}
+            slidesToShow={1}
+            slidesToScroll={2}
+            autoplay={true}
+            autoplaySpeed={3000}
+          >
+            {slideCars}
+          </Slider>
+        </div>
         <div className="carDesign showCar">
           <div className="theDetails">
-            <div className="carNames"><p>{carDetails.name}</p></div>
-            <div className="manufacturer"><p>{carDetails.manufacturer}</p></div>
-            <div className="lifestyle"><p>{carDetails.price}</p></div>
-            <div className="lifestyle"><p>{carDetails.country}</p></div>
-            <div className="socialMedia"><p>socia media handles</p></div>
+            <div className="carNames">
+              <p>{carDetails.name}</p>
+            </div>
+            <div className="manufacturer">
+              <p>{carDetails.manufacturer}</p>
+            </div>
+            <div className="lifestyle">
+              <p>{carDetails.price}</p>
+            </div>
+            <div className="lifestyle">
+              <p>{carDetails.country}</p>
+            </div>
+            <div className="socialMedia">
+              <p>socia media handles</p>
+            </div>
           </div>
           <div className="mustang">
             <p>{carDetails.name}</p>
@@ -57,18 +112,21 @@ class CarInfo extends Component {
 
     return (
       <div>
-        <p>car details here</p>
         {theCar}
       </div>
     );
   }
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   carDetails: state.carDetailsReducer.car,
+  cars: state.carReducer.cars,
 });
 
-const mapDispatchToProps = dispatch => ({
-  details: id => dispatch(getCarDetails(id)),
+const mapDispatchToProps = (dispatch) => ({
+  details: (id) => dispatch(getCarDetails(id)),
+  theCars: () => {
+    dispatch(getCars());
+  },
 });
 
 CarInfo.propTypes = {
@@ -79,3 +137,4 @@ CarInfo.propTypes = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CarInfo);
+/* eslint-enable */
