@@ -17,27 +17,42 @@ class CarInfo extends Component {
 
   render() {
     const { carDetails } = this.props;
-    const carUrl = carDetails.avatar ? (carDetails.avatar.url) : ('');
+    const revealForm = () => {
+      document.querySelector('.form-con').classList.remove('hide');
+      document.querySelector('.carDesign').classList.add('hide');
+      document.querySelector('.carDesign').classList.remove('carDesign');
+    };
+    const carUrl = carDetails.avatar ? carDetails.avatar.url : '';
     const theCar = !carDetails.length ? (
       <div className="carInfos">
         <div className="carousel">cars goes here carousel</div>
-        <div>
-          <p>{carDetails.manufacturer}</p>
-          <p>{carDetails.name}</p>
-          <p>{carDetails.country}</p>
-          <p>{carDetails.speed}</p>
-          <p>{carDetails.price}</p>
-          <p>{carDetails.model}</p>
-          <p>{carDetails.category}</p>
-          <img src={carUrl} alt="mustang" />
+        <div className="carDesign showCar">
+          <div className="theDetails">
+            <p>{carDetails.manufacturer}</p>
+            <p>{carDetails.price}</p>
+            <p>{carDetails.country}</p>
+          </div>
+          <div className="mustang">
+            <p>{carDetails.name}</p>
+            <img src={carUrl} alt="mustang" />
+            <button onClick={revealForm} className="bookButton" type="button">
+              Book
+            </button>
+          </div>
+          <div className="otherDetails">
+            <p>{carDetails.speed}</p>
+            <p>{carDetails.model}</p>
+            <p>{carDetails.category}</p>
+          </div>
         </div>
-        <div className="form-con">
+        <div className="form-con hide">
           <Booking carId={carDetails} />
         </div>
       </div>
     ) : (
       <p>wait for it</p>
     );
+
     return (
       <div>
         <p>car details here</p>

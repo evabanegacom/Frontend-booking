@@ -52,6 +52,13 @@ class Booking extends Component {
   render() {
     const { userReducer, carId } = this.props;
     const { city } = this.state;
+    const revealCar = () => {
+      const forms = document.querySelector('.showCar');
+      console.log(forms);
+      document.querySelector('.form-con').classList.add('hide');
+      document.querySelector('.showCar').classList.remove('hide');
+      document.querySelector('.showCar').classList.add('carDesign');
+    };
     return (
       <div className="booking-container">
         <form onSubmit={this.handleSubmit} className="car-form forms">
@@ -157,6 +164,11 @@ class Booking extends Component {
           <div className="input-field">
             <button type="submit" className="btn pink lighten-1 z-depth-0">
               Book
+            </button>
+          </div>
+          <div className="cancel">
+            <button onClick={revealCar} type="button" className="btn pink lighten-1 z-depth-0">
+              Cancel
             </button>
           </div>
         </form>

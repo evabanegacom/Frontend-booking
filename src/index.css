@@ -37,6 +37,10 @@ body a {
   display: none;
 }
 
+.show {
+  display: block;
+}
+
 .right {
   display: flex;
   width: 100%;

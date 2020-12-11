@@ -67,3 +67,14 @@
   width: 90%;
   height: 100px;
 }
+
+.cancel {
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.cancel button {
+  width: 100%;
+  background-color: turquoise;
+  color: red;
+}
