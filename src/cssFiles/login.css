@@ -4,9 +4,13 @@
   box-sizing: border-box;
 }
 
+/* stylelint-disable */
+
 body {
   font-family: "Open Sans";
 }
+
+/* stylelint-enable */
 
 .email {
   font-size: 30px;
