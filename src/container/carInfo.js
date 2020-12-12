@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 /* eslint-disable */
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,6 +17,7 @@ class CarInfo extends Component {
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
+    console.log(this.props)
     details(id);
     theCars();
     // const carId = this.props.match.params.id
@@ -136,5 +138,9 @@ CarInfo.propTypes = {
   params: PropTypes.string.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CarInfo);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withRouter(CarInfo));
+
 /* eslint-enable */
