@@ -9,7 +9,7 @@ import { getCarDetails, getCars } from '../actions/actions';
 import Booking from './booking';
 import BikeInfo from '../components/bikeInfo';
 import '../cssFiles/carInfo.css';
-/* eslint-disable */
+
 class CarInfo extends Component {
   componentDidMount() {
     const { details, theCars } = this.props;
@@ -152,4 +152,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(withRouter(CarInfo));
-/* eslint-enable */
