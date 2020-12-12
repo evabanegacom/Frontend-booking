@@ -36,7 +36,7 @@ class Navbar extends React.Component {
                   </button>
                   <div className="dropdown-content">
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/bikes">CARS</NavLink>
+                    <NavLink to="/bikes">BOOK</NavLink>
                     <NavLink
                       to={`/user/${userReducer.user.id}/bookings`}
                       key={Math.random()}
@@ -52,7 +52,7 @@ class Navbar extends React.Component {
               <Link to="/">Home</Link>
             </div>
             <div className="usersname">
-              <NavLink to="/bikes">CARS</NavLink>
+              <NavLink to="/bikes">BOOK</NavLink>
               <NavLink
                 to={`/user/${userReducer.user.id}/bookings`}
                 key={Math.random()}

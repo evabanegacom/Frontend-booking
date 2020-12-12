@@ -63,7 +63,7 @@ class BookingDetail extends Component {
         </div>
       ))
     ) : (
-      <p>
+      <p className="bookingStatus">
         {userReducer.user.name}
         {' '}
         you have no bookings yet
