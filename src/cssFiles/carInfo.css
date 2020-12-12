@@ -37,6 +37,7 @@
   height: 70vh;
   margin-top: 20px;
   background: white;
+  margin-bottom: 30px;
 }
 
 .mustang {
@@ -48,7 +49,7 @@
 }
 
 .mustang img {
-  width: 450px;
+  width: 400px;
 }
 
 .theDetails {
@@ -56,6 +57,7 @@
   flex-direction: column;
   border-right: 1px solid rgb(247, 241, 241);
   padding-top: 35px;
+  width: 70%;
 }
 
 .socialMedia {
@@ -63,6 +65,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.subMedia {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .manufacturer {
@@ -75,6 +83,105 @@
   align-items: center;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.otherDetails {
+  width: 80%;
+}
+
+.carId {
+  color: black;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.discount {
+  font-size: 10px;
+  font-weight: bolder;
+  margin-top: 5px;
+}
+
+.carSpeed {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 10px;
+  font-weight: bolder;
+  background: rgb(238, 232, 232);
+  height: 20px;
+  align-items: center;
+}
+
+.carIdentity {
+  font-weight: bolder;
+  margin-top: -20px;
+}
+
+.carDiscounts {
+  font-size: 13px;
+  font-weight: bolder;
+  margin-top: 10px;
+}
+
+.carDiscounts p {
+  margin-left: 4px;
+}
+
+.moreDiscount {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  font-weight: bolder;
+  margin-top: 10px;
+}
+
+.moreDiscount p {
+  margin-right: 10px;
+}
+
+.carType {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 10px;
+  font-weight: bolder;
+  background: rgb(238, 232, 232);
+  height: 20px;
+  align-items: center;
+}
+
+.carModel {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 10px;
+  font-weight: bolder;
+  background: white;
+  height: 20px;
+  align-items: center;
+}
+
+.forSpeed {
+  margin-left: 4px;
+}
+
+.speedDetail {
+  margin-right: 10px;
+}
+
+.detailsDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+
+.forModel {
+  margin-left: 4px;
+}
+
+.modelDetail {
+  margin-right: 10px;
 }
 
 .sliders {
@@ -90,7 +197,7 @@
   width: 100%;
 }
 
-.carNames {
+.carName {
   font-weight: bolder;
   margin-top: -30px;
 }
