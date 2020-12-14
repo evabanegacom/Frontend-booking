@@ -133,7 +133,7 @@ class Booking extends Component {
           </div>
           <div className="input-field forDesc">
             <label htmlFor="password">
-              Description
+              Description (5 characters min)
               <textarea
                 id="description"
                 required
