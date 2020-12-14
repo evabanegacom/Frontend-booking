@@ -12,11 +12,7 @@ import '../cssFiles/carInfo.css';
 
 class CarInfo extends Component {
   componentDidMount() {
-    const { details, theCars } = this.props;
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
-    details(id);
+    const { theCars } = this.props;
     theCars();
   }
 
