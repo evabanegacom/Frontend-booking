@@ -38,7 +38,7 @@ class SignUp extends Component {
           <h3 className="reg-head">Register</h3>
           <div className="input-field">
             <label htmlFor="name">
-              Name
+              Name (5 characters min)
               <input
                 id="name"
                 autoComplete="off"
@@ -62,7 +62,7 @@ class SignUp extends Component {
           </div>
           <div className="input-field">
             <label htmlFor="password">
-              Password
+              Password (6 characters min)
               <input
                 id="password"
                 required
