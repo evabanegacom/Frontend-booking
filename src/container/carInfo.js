@@ -13,15 +13,22 @@ import '../cssFiles/carInfo.css';
 class CarInfo extends Component {
   componentDidMount() {
     const { theCars } = this.props;
-    theCars();
-  }
-
-  componentDidUpdate() {
     const { details } = this.props;
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
+    theCars();
     details(id);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { details } = this.props;
+    const { match } = this.props;
+    const { params } = match;
+    const { id } = params;
+    if (id !== prevProps.match.params.id) {
+      details(id);
+    }
   }
 
   render() {
@@ -188,6 +195,7 @@ CarInfo.propTypes = {
   params: PropTypes.string.isRequired,
   cars: PropTypes.arrayOf.isRequired,
   theCars: PropTypes.func.isRequired,
+  id: PropTypes.objectOf.isRequired,
 };
 
 export default connect(

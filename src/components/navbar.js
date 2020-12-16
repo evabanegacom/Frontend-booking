@@ -17,7 +17,7 @@ class Navbar extends React.Component {
     const { userReducer } = this.props;
     return (
       <div className="navbar">
-        {!userReducer.loggedIn ? (
+        {JSON.stringify(userReducer.user) === '{}' ? (
           <SignedOutLinks />
         ) : (
           <div className="navbar-div">

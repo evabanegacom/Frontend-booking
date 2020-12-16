@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signUserUp } from '../actions/actions';
 import '../cssFiles/registration.css';
-
+/* eslint-disable */
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -20,9 +20,8 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { signUserUp, history } = this.props;
+    const { signUserUp } = this.props;
     signUserUp(this.state);
-    history.push('/signIn');
   }
 
   handleChange = e => {
@@ -32,6 +31,10 @@ class SignUp extends Component {
   }
 
   render() {
+    const {history, userReducer } = this.props
+    if (JSON.stringify(userReducer.user) !== "{}"){
+      history.push(`/user/${userReducer.user.id}/bookings`)
+    }
     return (
       <div className="reg">
         <form onSubmit={this.handleSubmit} className="white">
@@ -86,9 +89,13 @@ const mapDispatchToProps = dispatch => ({
   signUserUp: userInfo => dispatch(signUserUp(userInfo)),
 });
 
+const mapStateToProps = state => ({
+  userReducer: state.userReducer
+})
+
 SignUp.propTypes = {
   signUserUp: PropTypes.func.isRequired,
   history: PropTypes.objectOf.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
