@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signUserUp } from '../actions/actions';
 import '../cssFiles/registration.css';
-/* eslint-disable */
+
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -31,9 +31,9 @@ class SignUp extends Component {
   }
 
   render() {
-    const {history, userReducer } = this.props
-    if (JSON.stringify(userReducer.user) !== "{}"){
-      history.push(`/user/${userReducer.user.id}/bookings`)
+    const { history, userReducer } = this.props;
+    if (JSON.stringify(userReducer.user) !== '{}') {
+      history.push(`/user/${userReducer.user.id}/bookings`);
     }
     return (
       <div className="reg">
@@ -90,12 +90,13 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  userReducer: state.userReducer
-})
+  userReducer: state.userReducer,
+});
 
 SignUp.propTypes = {
   signUserUp: PropTypes.func.isRequired,
   history: PropTypes.objectOf.isRequired,
+  userReducer: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
