@@ -55,6 +55,7 @@
 .white .button-field {
   width: 90%;
   height: 100px;
+  margin-top: 20px;
 }
 
 @media only screen and (max-width: 960px) {
