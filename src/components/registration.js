@@ -96,7 +96,7 @@ class SignUp extends Component {
                 id="email"
                 autoComplete="off"
                 required
-                // type="email"
+                type="email"
                 placeholder="email"
                 onChange={this.handleChange}
               />
