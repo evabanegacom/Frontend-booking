@@ -58,6 +58,12 @@
   margin-top: 20px;
 }
 
+.button-field button {
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 960px) {
   .white {
     width: 60%;

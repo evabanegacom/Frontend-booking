@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { signUserUp } from '../actions/actions';
 import '../cssFiles/registration.css';
+import 'react-notifications/lib/notifications.css';
+import {
+  NotificationContainer,
+  NotificationManager,
+} from 'react-notifications';
+import { signUserUp } from '../actions/actions';
 
 const initState = {
   email: '',
@@ -30,7 +35,7 @@ class SignUp extends Component {
     let passwordError = '';
 
     if (!email.includes('@')) {
-      emailError = 'invalid email';
+      emailError = 'invalid email or already exists';
     }
 
     if (name.length < 5) {
@@ -54,10 +59,37 @@ class SignUp extends Component {
     const { signUserUp } = this.props;
     const isValid = this.validate();
     if (isValid) {
-      console.log(this.state);
       signUserUp(this.state);
       this.setState(initState);
+      NotificationManager.success('Signed up successsfully', 'congrats', 4000);
     }
+  };
+
+  createNotification = type => () => {
+    switch (type) {
+      case 'info':
+        NotificationManager.info('info message');
+        break;
+      case 'success':
+        NotificationManager.success('Signed up successsfully', 'congrats');
+        break;
+      case 'warning':
+        NotificationManager.warning(
+          'Warning message',
+          'Close after 3000ms',
+          3000,
+        );
+        break;
+      case 'error':
+        NotificationManager.error('Error message', 'Click me!', 5000, () => {
+          alert('callback');
+        });
+        break;
+
+      default:
+        return null;
+    }
+    return null;
   };
 
   handleChange = e => {
@@ -96,7 +128,6 @@ class SignUp extends Component {
                 id="email"
                 autoComplete="off"
                 required
-                type="email"
                 placeholder="email"
                 onChange={this.handleChange}
               />
@@ -122,6 +153,7 @@ class SignUp extends Component {
             </button>
           </div>
         </form>
+        <NotificationContainer />
       </div>
     );
   }
