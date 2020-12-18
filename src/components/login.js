@@ -1,26 +1,65 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import 'react-notifications/lib/notifications.css';
+import {
+  NotificationContainer,
+  NotificationManager,
+} from 'react-notifications';
 import { fetchUser } from '../actions/actions';
 import '../cssFiles/login.css';
+
+const initState = {
+  email: '',
+  password: '',
+  emailError: '',
+  passwordError: '',
+};
 
 class LogIn extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      email: '',
-      password: '',
-    };
+    this.state = initState;
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
+  validate = () => {
+    const { email, password } = this.state;
+    // const { userReducer } = this.props;
+    let emailError = '';
+    let passwordError = '';
+
+    if (!email.includes('@')) {
+      emailError = 'incorrect email';
+    }
+
+    // if (email !== userReducer.user.email) {
+    //   emailError = 'email does not exist';
+    // }
+
+    if (password.length < 6) {
+      passwordError = 'wrong password';
+    }
+
+    if (emailError || passwordError) {
+      this.setState({ emailError, passwordError });
+      return false;
+    }
+
+    return true;
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const { fetchUser } = this.props;
-    fetchUser(this.state);
+    const isValid = this.validate();
+    if (isValid) {
+      fetchUser(this.state);
+      NotificationManager.success('login successful', 'success', 4000);
+    }
   };
 
   handleChange = e => {
@@ -34,6 +73,7 @@ class LogIn extends Component {
     if (userReducer.loggedIn === true) {
       history.push('/bikes');
     }
+    const { emailError, passwordError } = this.state;
     return (
       <section>
         <div className="form-container">
@@ -52,6 +92,7 @@ class LogIn extends Component {
                   placeholder="Email"
                 />
               </label>
+              <div style={{ color: 'cyan', fontWeight: 'bolder', fontSize: '18px' }}>{emailError}</div>
             </div>
             <div className="control">
               <label htmlFor="password" className="email">
@@ -66,6 +107,7 @@ class LogIn extends Component {
                   placeholder="password"
                 />
               </label>
+              <div style={{ color: 'red', fontWeight: 'bolder', fontSize: '18px' }}>{passwordError}</div>
             </div>
             <div className="control">
               <button type="submit" className="login-button">
@@ -73,6 +115,7 @@ class LogIn extends Component {
               </button>
             </div>
           </form>
+          <NotificationContainer />
         </div>
       </section>
     );

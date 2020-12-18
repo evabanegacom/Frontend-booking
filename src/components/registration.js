@@ -50,7 +50,6 @@ class SignUp extends Component {
       this.setState({ emailError, nameError, passwordError });
       return false;
     }
-
     return true;
   };
 

@@ -86,6 +86,8 @@ h1 {
   color: cyan;
   font-weight: bolder;
   cursor: pointer;
+  outline: none;
+  margin-top: 20px;
 }
 
 .control input[type="submit"]:hover {
