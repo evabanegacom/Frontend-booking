@@ -28,7 +28,7 @@ class LogIn extends Component {
 
   validate = () => {
     const { email, password } = this.state;
-    // const { userReducer } = this.props;
+    const { error } = this.props;
     let emailError = '';
     let passwordError = '';
 
@@ -36,9 +36,9 @@ class LogIn extends Component {
       emailError = 'incorrect email';
     }
 
-    // if (email !== userReducer.user.email) {
-    //   emailError = 'email does not exist';
-    // }
+    if (error === 'invalid') {
+      emailError = 'email does not exist';
+    }
 
     if (password.length < 6) {
       passwordError = 'wrong password';
@@ -128,12 +128,14 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
   userReducer: state.userReducer,
+  error: state.userReducer.error,
 });
 
 LogIn.propTypes = {
   fetchUser: PropTypes.func.isRequired,
   history: PropTypes.objectOf.isRequired,
   userReducer: PropTypes.func.isRequired,
+  error: PropTypes.objectOf.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
 /* eslint-enable */

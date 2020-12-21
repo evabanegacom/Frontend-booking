@@ -48,6 +48,8 @@ export const fetchCarDetailsFailure = error => ({
 
 export const logUserOut = () => ({ type: 'LOG_OUT' });
 
+// export const wrongUser = () => ({ type: 'WRONG_USER' });
+
 // Booking REGISTRATION
 
 export const fetchUser = userInfo => dispatch => {
@@ -64,6 +66,9 @@ export const fetchUser = userInfo => dispatch => {
       localStorage.setItem('token', data.token);
       dispatch(setUser(data));
     });
+  // .catch(
+  //   dispatch(wrongUser()),
+  // );
 };
 
 export const signUserUp = userInfo => dispatch => {

@@ -1,6 +1,7 @@
 const initialState = {
   loggedIn: false,
   user: {},
+  error: null,
 };
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -8,7 +9,15 @@ const userReducer = (state = initialState, action) => {
       return {
         loggedIn: action.payload.loggedIn,
         user: { ...action.payload.user },
+        error: action.payload.error,
       };
+
+      // case 'WRONG_USER':
+      //   return {
+      //     loggedIn: false,
+      //     user: {},
+      //     error: 'invalid',
+      //   };
 
     case 'LOG_OUT':
       localStorage.clear();
