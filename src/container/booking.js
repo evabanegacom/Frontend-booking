@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// import emailjs from 'emailjs-com';
 import { userBooking } from '../actions/actions';
 import '../cssFiles/booking.css';
 
@@ -23,10 +24,24 @@ class Booking extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // sendEmail = e => {
+  //   e.preventDefault();
+
+  //   emailjs.send('service_ey6p9rp', 'template_tytzv9l', this.state, 'user_p6RgQH7YhWPsKwWBkmYPP')
+  //     .then(result => {
+  //       console.log(result.text);
+  //     }, error => {
+  //       console.log(error.text);
+  //     });
+
+  //   e.target.reset();
+  // }
+
   handleSubmit = e => {
     e.preventDefault();
     const { bookings, userReducer, history } = this.props;
     if (userReducer.loggedIn === true) {
+      // this.sendEmail(e);
       bookings(this.state);
     }
     history.push(`/user/${userReducer.user.id}/bookings`);
@@ -59,13 +74,14 @@ class Booking extends Component {
     };
     return (
       <div className="booking-container">
-        <form onSubmit={this.handleSubmit} className="car-form forms">
+        <form onSubmit={this.handleSubmit} id="contact-form" className="car-form forms">
           <h3 className="grey-text text-darken-3">BOOK YOUR CAR</h3>
           <div className="hide">
             <label htmlFor="user">
               User
               <input
                 id="user_id"
+                name="user_id"
                 autoComplete="off"
                 className="nameOnly"
                 required
@@ -81,6 +97,7 @@ class Booking extends Component {
               User Name
               <input
                 id="username"
+                name="username"
                 autoComplete="off"
                 className="usernameOnly"
                 required
@@ -96,6 +113,7 @@ class Booking extends Component {
               Car
               <input
                 id="car_id"
+                name="car_id"
                 className="carOnly"
                 autoComplete="off"
                 required
@@ -110,6 +128,7 @@ class Booking extends Component {
               Car model
               <input
                 id="model"
+                name="model"
                 required
                 autoComplete="off"
                 className="carmodelOnly"
@@ -124,6 +143,7 @@ class Booking extends Component {
               Date
               <input
                 id="date"
+                name="date"
                 required
                 autoComplete="off"
                 type="date"
@@ -136,6 +156,7 @@ class Booking extends Component {
               Description (5 characters min)
               <textarea
                 id="description"
+                name="description"
                 required
                 autoComplete="off"
                 type="text"

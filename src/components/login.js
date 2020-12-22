@@ -36,8 +36,9 @@ class LogIn extends Component {
       emailError = 'incorrect email';
     }
 
-    if (error === 'invalid') {
-      emailError = 'email does not exist';
+    if (error) {
+      console.log(error);
+      emailError = 'wrong email or password';
     }
 
     if (password.length < 6) {
