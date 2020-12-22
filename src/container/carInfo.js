@@ -67,7 +67,7 @@ class CarInfo extends Component {
             className="sliders"
             dots={false}
             slidesToShow={1}
-            slidesToScroll={2}
+            slidesToScroll={1}
             autoplay
             autoplaySpeed={3000}
           >
