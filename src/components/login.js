@@ -36,7 +36,7 @@ class LogIn extends Component {
       emailError = 'incorrect email';
     }
 
-    if (error === 'invalid') {
+    if (JSON.stringify(error) !== '{}') {
       emailError = 'email does not exist';
     }
 
