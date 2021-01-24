@@ -1,0 +1,77 @@
+.reg {
+  background: rgb(39, 36, 36);
+  height: 95vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.white {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  width: 30%;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.white label {
+  color: white;
+}
+
+.white h3 {
+  color: rgb(243, 207, 3);
+  font-weight: bolder;
+}
+
+.white input {
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+  background-color: rgb(207, 200, 200);
+  outline: none;
+}
+
+.white button {
+  background: rgb(243, 207, 3);
+  border: none;
+  width: 100%;
+  height: 40px;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.white .input-field {
+  width: 90%;
+  height: 80px;
+}
+
+.white .button-field {
+  width: 90%;
+  height: 100px;
+  margin-top: 20px;
+}
+
+.button-field button {
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 960px) {
+  .white {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .white {
+    width: 90%;
+  }
+}
